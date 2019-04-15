@@ -12,9 +12,16 @@ const Stats = ({ stats }) => (
           className={`Stat ${histogram ? 'with-chart' : ''}`}
           key={`${label}-${value}`}
         >
-          <h2>
+          <h2 aria-live="polite" aria-relevant="all" aria-atomic="true">
             <div className="Stat__value">
-              {icon && <img className="Stat__value-icon" src={icon} />}
+              {icon && (
+                <img
+                  className="Stat__value-icon"
+                  src={icon}
+                  alt=""
+                  role="presentation"
+                />
+              )}
               {histogram ? (
                 <Histogram data={histogram} />
               ) : (
